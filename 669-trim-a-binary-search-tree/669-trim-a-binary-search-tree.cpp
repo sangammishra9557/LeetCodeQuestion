@@ -13,23 +13,24 @@ class Solution {
 public:
     TreeNode* trimBST(TreeNode* root, int low, int high) {
         
-        if(root == NULL) return NULL;
         
-        if(low > root->val)
-        {
-            // root->left = NULL; (Optional)
-            root = trimBST(root->right, low, high);
-        }
-        else if(high < root->val)
-        {
-            // root->right = NULL;
-            root = trimBST(root->left, low, high);
-        }
-        else
-        {
-            root->left = trimBST(root->left, low, high);
-            root->right = trimBST(root->right, low, high);
-        }
-        return root;
+         if(root==  nullptr)
+             return NULL;
+        
+         if(root->val >= low  &&  root->val <= high)
+         {
+             root->left = trimBST(root->left, low , high);
+             root->right = trimBST(root->right, low , high);
+              return root;
+             // this is step is very important  to return  because it will                         return the same vale  as in left or right if in  the range    
+             // other wise  from the below condition we would get the ans in left or                right  which is the correct value present in the range provided
+             
+         }
+         if( root->val <  low )
+              return trimBST(root->right , low ,  high);
+        
+         if( root-> val >  high)
+              return trimBST(root-> left , low , high);
+         return  root; 
     }
 };
