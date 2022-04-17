@@ -31,6 +31,6 @@ public:
         
          if( root-> val >  high)
               return trimBST(root-> left , low , high);
-         return  root; 
+         return   NULL;
     }
 };
