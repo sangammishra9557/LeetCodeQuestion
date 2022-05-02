@@ -9,7 +9,9 @@ public:
               
                else if ( nums[i] %2 != 0)
                {swap(nums[i] , nums[j]);
-                j--;}
+                }
+               if(nums[j]%2  !=0)
+                   j--;
                
           }
          return nums;
