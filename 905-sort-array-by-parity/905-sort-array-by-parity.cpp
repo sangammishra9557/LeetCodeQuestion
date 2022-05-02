@@ -8,9 +8,9 @@ public:
                     i++;
               
                else if ( nums[i] %2 != 0)
-                     swap(nums[i] , nums[j]);
-                if (nums[j]  % 2 != 0)
-                     j--;
+               {swap(nums[i] , nums[j]);
+                j--;}
+               
           }
          return nums;
     }
