@@ -1,0 +1,2 @@
+tsack mein values ko tum direct update nhin kar skte map ki trah toh toumhein  pop() krna pdega  phir push krna pdega
+This question is very important if you have to use hasmap and also keep track the count of the last value then this  stack<  value , count> can  be used  here
