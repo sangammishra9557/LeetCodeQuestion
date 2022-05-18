@@ -14,7 +14,7 @@ public:
     vector<int> preorderTraversal(TreeNode* root) {
         vector<int> result;
         stack<TreeNode*> st;
-        while(!st.empty() || root!=NULL)
+        while(!st.empty() || root != NULL)
         {
             while(root != NULL)
             {
