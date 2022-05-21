@@ -11,24 +11,26 @@
  */
 class Solution {
 public:
-        int ans; 
-     void  helper(TreeNode * root ,  int &k){
-         if(root==nullptr)
-             return;
-          helper(root->left, k);
-         if(  --k == 0)
-         {ans =  root->val;
-             return ;
-         }
-         
-         helper(root->right, k);
-          
-         
-     }
-    
     int kthSmallest(TreeNode* root, int k) {
-         helper(root, k);
-         return   ans;
+        
+        
+        
+           stack<TreeNode *> st; 
+           while( !st.empty() || root != NULL){
+               
+               
+                 while(root != NULL)
+                 {
+                      st.push(root);
+                      root = root->left;
+                 }
+                  auto node = st.top();
+                    st.pop();
+                   if(--k ==0)
+                        return node->val;
+                   root =  node->right;
+           }
+         return 0 ;
         
     }
 };
