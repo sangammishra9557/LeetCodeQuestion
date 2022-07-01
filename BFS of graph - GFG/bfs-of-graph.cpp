@@ -12,17 +12,16 @@ class Solution {
         bool  visited[V];
         memset(visited , false, sizeof(visited));
         q.push(0);
-        
         while(!q.empty())
         {  auto  vertex  = q.front();
            q.pop();
-           if(visited[vertex])
-              continue;
+           if (visited[vertex]) continue ; 
            visited[vertex] = true;
            ans.emplace_back(vertex);
            
            for(auto child : adj[vertex]){
-               q.push(child);
+             
+                  q.push(child);
                   
                
            }
