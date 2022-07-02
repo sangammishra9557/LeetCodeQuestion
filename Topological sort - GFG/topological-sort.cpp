@@ -20,8 +20,8 @@ class Solution
 	     } 
 	      queue<int> q ;
 	     for(int i = 0 ; i<V ; i++) 
-	     {if(indegree[i] == 0) q.push(i);
-	     }     
+	     if(indegree[i] == 0) q.push(i);
+	          
 	     
 	      while(!q.empty()){
 	            int node = q.front();
