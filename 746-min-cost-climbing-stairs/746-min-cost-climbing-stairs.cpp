@@ -13,7 +13,9 @@ public:
 //          return  min(cost[0], cost[1]);
               int n = cost.size();
           vector<int> ans(cost.size()+1 , -1);
-           return    min( mincost(cost ,ans , 0 , n)  , mincost(cost, ans , 1 , n)); 
+            int val =    mincost(cost ,ans , 0 , n) ; //, mincost(cost, ans , 1 , n));
+        
+     return min ( ans[0] , ans[1]);
           
     }
  private:
