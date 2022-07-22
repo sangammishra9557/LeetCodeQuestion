@@ -22,14 +22,19 @@ class Solution {
 public:
     int maxDepth(Node* root) {
         
-          if (root== NULL) return 0 ; 
+//           if (root== NULL) return 0 ; 
         
-          int ans = 0 ; 
-         for( auto  &child : root->children){
-               ans = max(ans, maxDepth(child));
+//           int ans = 0 ; 
+//          for( auto  &child : root->children){
+//                ans = max(ans, maxDepth(child));
                   
+//          }
+//           return  1 + ans ;
+          if(root == NULL) return 0 ; 
+          int ans =  0 ; 
+         for( auto child :  root->children){
+             ans = max( ans , maxDepth(child));
          }
-          return  1+ ans ;
-        
+          return 1+ ans ;
     }
 };
