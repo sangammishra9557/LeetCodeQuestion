@@ -28,13 +28,19 @@ public:
     
    private :
    void   pre(Node* root , vector<int> & ans)
-   {  if(root == NULL) return ;
+    {//  if(root == NULL) return ;
        
-     ans.push_back(root->val);
-      for( auto &child:  root->children)
-      {  pre( child, ans);
-      }
-      return;
+//      ans.push_back(root->val);
+//       for( auto &child:  root->children)
+//       {  pre( child, ans);
+//       }
+//       return;
+        if( root == NULL) return  ; 
+      
+        ans.emplace_back( root-> val);
+        for( auto  child : root->children){
+             pre(child , ans);
+        }
        
    }
      
