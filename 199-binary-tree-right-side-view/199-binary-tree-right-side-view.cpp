@@ -25,8 +25,8 @@ public:
             
             if( level == ans.size())  ans.push_back(root->val);
             
-            if(root->right)  rv(root->right , ans , level+1);
-             if(root->left)   rv( root->left , ans , level +1);
+               rv(root->right , ans , level+1);
+               rv( root->left , ans , level +1);
           
       }
 };
