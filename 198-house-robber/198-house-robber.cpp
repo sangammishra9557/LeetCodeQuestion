@@ -1,11 +1,13 @@
 class Solution {
 public:
     int rob(vector<int>& nums) {
-        
-        
-     unordered_map<int , int> mp;
-         return lootmoney(0 , nums ,mp);
-        
+         int n = nums.size(); 
+          if( n == 1)  return nums[0];
+       nums[n-2] = max(nums[n-1] , nums[n-2] );
+       for(int i = n - 3 ; i>= 0 ; i--){
+           nums[i] = max(nums[i+1] , nums[i]+ nums[i+2]);
+       }
+         return nums[0];
     }
       int lootmoney( int ci ,  vector<int> & nums , unordered_map<int , int> &mp){
            if( ci >= nums.size())  return 0 ;
