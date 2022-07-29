@@ -1,24 +1,21 @@
 class Solution {
 public:
-int help(int ind , int prev ,vector<int>& arr,vector<vector<int>> &dp){
-        if(ind == arr.size())return 0;
-            
-        if(dp[ind][prev+1] != -1){
-            return dp[ind][prev+1];
-        }
-        
-        int nottake = help(ind+1,prev,arr,dp);
-        int take =0;
-        if(prev==-1 || arr[ind]>arr[prev]){
-            take = 1+help(ind+1,ind,arr,dp);
-        }
-        return dp[ind][prev+1]=max(nottake,take);
+    int lengthOfLIS(vector<int>& nums) {
+         int n  = nums.size();
+         vector<vector<int>> memo(n+1 , vector<int>(n+1 , -1 ));
+       return lis(0 ,   -1    , nums , memo);
     }
-     int lengthOfLIS(vector<int>& nums) {
-        int n = nums.size();
-        //APPROACH 1
-        vector<vector<int>> dp(n+1,vector<int>(n+1,-1));
-        return help(0,-1,nums,dp);
-		}
-    
+     int lis( int index , int prev_index , vector<int> & nums , vector<vector<int>> &memo){
+          if ( index == nums.size()) return  0 ; 
+         int take = 0;
+         
+          if(memo[index][prev_index+1] != -1) return memo[index][prev_index+1];
+         
+              if( prev_index == -1  ||  nums[index] > nums[prev_index ])
+              take = 1 + lis( index+1 ,  index , nums , memo);
+         
+         int nottake = lis( index+1 , prev_index  , nums , memo);
+         
+          return memo[index][prev_index+1]= max(take , nottake  );
+     }
 };
