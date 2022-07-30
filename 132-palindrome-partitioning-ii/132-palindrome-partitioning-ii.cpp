@@ -1,41 +1,44 @@
 class Solution {
 public:
     int minCut(string s) {
-         int n = s.size();
-        vector<vector<int>> memo(n+1, vector<int>(n+1,-1));
-         return minimumCuts(s, 0 , s.size()-1 , memo);
         
+           vector<int>  dp(s.size()  , -1);
+         return minimumCuts( 0 , s.size()-1 , s , dp);
     }
- private :
-     int  minimumCuts( string &s , int start , int end , vector<vector<int>> & memo)
-     {
-          if(ispalindrome(s,start , end) or  start >=end)
-              return 0 ; 
-         if(memo[start][end] != -1)
-         { cout<<"hello"; 
-             return  memo[start][end];
-         }
-         int ans = INT_MAX;
-         for( int  i = start ; i<end; i++)
-           {
-                if(ispalindrome(s,start , i))
-                {
-                     int temp = 1+ minimumCuts( s,i+1,end , memo);
-                     ans = min(temp,ans);
-                }
-           }
-        return  memo[start][end] = ans;  
-     }
-     bool ispalindrome(string &s, int start, int end)
-     {   
-          while(start<=end)
-          { 
-                if(s[start] != s[end])
-                    return false;
-              start++;
-              end--;
-          }
-          return true;
+      int minimumCuts( int i , int end  , string &s  , vector<int> &dp ){
          
+         
+          if(ispalindrome( i ,  end , s))  return 0 ;
+          
+           if(dp[i] != -1)  return dp[i];
+          
+          
+          
+          int mini = INT_MAX; // if this neeche wala lopp upr end -1 smghke    neeche eqiual to end chlaya hta toh last ans -1  return krna pdta kyunki woh last character pe bhi jodke dedea 1 ans 
+           for(int start = i  ;  start  < end ; start++){
+                
+                if(ispalindrome(  i , start  ,s)){
+                    
+                     int cost = 1+  minimumCuts( start+1  , end , s , dp);
+                      mini = min(mini , cost);
+                }
+               
+           }
+         
+         return dp[i] = mini ;
+         
+         
+     }
+    
+     bool ispalindrome( int i , int j , string &s ){
+          
+          while( i< j){
+               if(s[i]  != s[j])  return false;
+              
+                i++ ; 
+                j--;
+          }
+         
+           return true ;
      }
 };
