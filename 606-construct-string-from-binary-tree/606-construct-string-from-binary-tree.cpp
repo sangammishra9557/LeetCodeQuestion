@@ -11,24 +11,28 @@
  */
 class Solution {
 public:
-    string str=""; 
-    void helper(TreeNode* root){
-        str += to_string(root->val);
-     
-        if(root->left){
-            str += "("; 
-            helper(root->left); 
-            str += ")"; 
-        }
-        else if(!root->left && root->right) str += "()";
-        if(root->right){
-            str += "("; 
-            helper(root->right); 
-            str += ")";
-        }
-    }        
+    string ans= "";
     string tree2str(TreeNode* root) {
-        helper(root); 
-        return str;
+        helper(root);
+        return ans;
+    }
+    void helper(TreeNode * root){
+         ans+= to_string(root->val);
+        
+         if(root->left){
+              ans+= "(";
+              helper(root->left);
+              ans+= ")";
+         }
+       else  if(!root->left && root->right){
+            ans+= "()";
+        }
+        if(root->right){
+             ans+="(";
+             helper(root->right);
+            ans+= ")";
+        }
+        
+        
     }
 };
