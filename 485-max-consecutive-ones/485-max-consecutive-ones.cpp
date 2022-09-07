@@ -6,11 +6,11 @@ public:
          int maxi = 0 ; 
          for(int i = 0 ; i< n ; i++){
               if(nums[i] ==  1) count++;
-              if(nums[i] == 0 ){
-                   maxi = max(count , maxi);
-                   count = 0 ; 
+              else{
+                  count = 0;
               }
-         } 
+             maxi =max(count , maxi);
+             } 
         return  max(maxi , count) ; 
     }
 };
