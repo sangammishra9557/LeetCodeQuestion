@@ -6,7 +6,7 @@ public:
        int maxi = 0;
         int count = 0 ; 
          int current ; 
-        for( auto  &i : nums){
+        for( auto  &i : st){  // yhn pe iska time minimize kr skte hain st pe iterate krke 
              if(st.count(i-1)) continue ;  // iska mtlb ko woh sequqnce ka starting nhin ho skta hai ; 
              else {
                   count = 0;
