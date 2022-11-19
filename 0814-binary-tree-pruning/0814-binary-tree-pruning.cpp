@@ -20,7 +20,7 @@ public:
          root->left = pruneTree(root->left);
          root->right = pruneTree(root->right);
         
-        if(root->val == 1 || root->left || root->right) return  root  ; 
+        if( root->left || root->right||root->val == 1 ) return  root  ; 
         
         
          return NULL;
