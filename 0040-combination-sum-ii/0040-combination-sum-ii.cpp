@@ -15,7 +15,7 @@ public:
           for(int j = i ; j<candidates.size();j++){
             
               if( j>i && candidates[j] == candidates[j-1])continue;
-             //  if(candidates[j]>target)  break;
+              if(candidates[j]>target)  break;
                temp.push_back(candidates[j]);
               helper(j+1 , target-candidates[j] , temp, candidates , ans);
                temp.pop_back();
