@@ -8,7 +8,7 @@ private:
            ans.push_back(temp);
            return;
        }
-       if( k <= 0 || i >9 || sum > target) return ; 
+       if( k <= 0 || i >9 ) return ; 
        
        helper(i+1 , target ,sum ,  k , temp , ans);
        
