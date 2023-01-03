@@ -12,7 +12,7 @@ public:
             if(guess[i] == secret[i]){
                 a++;
                 mp[guess[i]]--;
-                if(mp.count(guess[i]) == 0) mp.erase(guess[i]);
+             
             }
         }
         
