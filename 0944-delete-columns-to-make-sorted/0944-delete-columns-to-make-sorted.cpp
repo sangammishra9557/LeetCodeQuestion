@@ -9,9 +9,11 @@ public:
             int flag = 0;
             for(int j =1 ;j<m ; j++)
             {
-                if (strs[j-1][i] > strs[j][i]) flag =1; 
+                if (strs[j-1][i] > strs[j][i]) {
+                    c++;
+                    break;
+                }
             }
-         if(flag) c++;
         }
          return c;
     }
