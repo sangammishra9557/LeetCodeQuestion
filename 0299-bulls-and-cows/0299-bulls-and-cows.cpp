@@ -25,7 +25,7 @@ public:
                cout<<mp[guess[i]];
                 cout<<endl;
                 cout<<"xx"<<mp[guess[i]]<<" "<<mp.count(guess[i])<<endl;
-                if(mp[guess[i]] == 0) mp.erase(guess[i]);
+           
             
             }
         }
