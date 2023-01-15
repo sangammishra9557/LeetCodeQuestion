@@ -5,7 +5,7 @@ public:
     int dfs(int v , int parent , string &s, int &ans ,vector<int> adj[]){
         
         int m1= 0 , m2 = 0 ; 
-        for( auto  &child : adj[v]){
+        for( auto  child : adj[v]){
           
                 int temp = dfs(child,v , s, ans,adj);
             
