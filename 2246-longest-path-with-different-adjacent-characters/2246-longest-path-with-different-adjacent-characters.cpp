@@ -1,40 +1,36 @@
 class Solution {
 public:
-    vector<int> child[100001];
-    int ans;
-    int dfs(string &s, int curr_node)
-    {
-        if(child[curr_node].empty())return 1;
-        int mx1 = 0, mx2 =0;
-    // traversing over all the child nodes of the curr_node
-        for(auto &child_node : child[curr_node])
-        {
-        // recursively trying for child nodes
-            int len = dfs(s, child_node);
-            ans = max(ans , len);
-     // rejecting the current node if it's of same character
-            if(s[curr_node] == s[child_node])continue;
-     // updating the mx1 and mx2 paths that we can take from all the children of the given node
-            if(len > mx1)
-            {
-                mx2 = mx1;
-                mx1 = len;
-            }
-    //seecond max will be updated
-            else mx2 = max(mx2 , len);
+    
+    
+    int dfs(int v , int parent , string &s, int &ans ,vector<int> adj[]){
+        
+        int m1= 0 , m2 = 0 ; 
+        for( auto  &child : adj[v]){
+          
+                int temp = dfs(child,v , s, ans,adj);
+            
+                if(s[v] == s[child]) continue;
+                
+                if(temp > m1) m2 = m1, m1 = temp;
+                else if(temp> m2 ) m2 = temp ;
+
         }
-    // Update the result.
-    //Again, max1+mx2+1 means the length of the longest valid path 
-    //going through this node in the sub-tree rooted at this node
-        ans = max(ans, 1 + mx1 + mx2);
-    //Adding 1 for the current node
-        return 1 + mx1;
-    }
-    int longestPath(vector<int>& parent, string s){
-        int n = parent.size();
-        for(int i=1;i<n;i++)child[parent[i]].push_back(i);
-        ans = 1;
-        dfs(s,0);
+            ans = max(ans, 1+m1+m2);
+            
+            return(m1+1);
+        }
+        
+        
+    
+    int longestPath(vector<int>& parent, string s) {
+       int n = parent.size();
+       int ans = 0;
+       vector<int> adj[n];
+        for(int i =1; i<n ; i++){
+            adj[parent[i]].push_back(i);
+        }
+       dfs(0,-1,s,ans,adj);
+   
         return ans;
     }
 };
