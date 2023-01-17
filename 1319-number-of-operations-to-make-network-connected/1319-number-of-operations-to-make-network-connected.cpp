@@ -30,7 +30,8 @@ public:
             parent[i] = i;
         }
         for(auto & vect: connections){
-            Union(vect[0],vect[1]);
+            if(parent[vect[0]] != parent[vect[1]])
+                Union(vect[0],vect[1]);
         }
         int ct = 0;
       for(int i =0 ; i<n; i++){
