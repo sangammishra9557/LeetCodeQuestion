@@ -25,11 +25,11 @@ public:
     for(int i = 0 ; i<n; i++){
         dsu_union(s1[i]-'a' , s2[i]-'a');
     }
-      string temp = "";   
+     
       for(int j = 0; j< baseStr.size();j++){
-        char b =  find(baseStr[j]-'a')+'a';
-          temp.push_back(b);
+        baseStr[j] =  find(baseStr[j]-'a')+'a';
+
       }
-        return temp;
+        return baseStr;
     }
 };
