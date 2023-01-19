@@ -25,7 +25,7 @@ public:
         vector<vector<int>> dp(n+2, vector<int>(n+2,0));
         for( int  i = n ; i>= 1 ; i--){
             for( int j = i ; j<= n; j++){
-                if( i >j)continue;
+               // if( i >j)continue;
                 int maxi = INT_MIN;
                 for( int k = i  ; k<= j; k++){
                     int cost = nums[i-1]*nums[k]*nums[j+1]+ dp[i][k-1]+ dp[k+1][j];
