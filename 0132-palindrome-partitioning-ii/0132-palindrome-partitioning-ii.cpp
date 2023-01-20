@@ -28,8 +28,24 @@ public:
     }
     int minCut(string s) {
         
-        int n = s.size();
-         vector<int> dp (n,-1);
-         return minimumcuts( 0 , n , dp,s)-1;
+        int n = s.size();// yhn test case yeh ki supose a|b|c| toh last cut toh mana hi nhin jayega valid a|b|c hai ;
+         // vector<int> dp (n,-1);
+         // return minimumcuts( 0 , n , dp,s)-1;
+            vector<int> dp (n+1 , 0);
+             //fill the base case dp[n] = 0  but already filled phle ;
+          for( int i = n-1 ; i >= 0; i--){
+                int mini = INT_MAX;
+                for( int j = i ; j<n ; j++){
+            if(ispalindrome(i, j , s)){
+                int cost = 1 + dp[j+1];
+                mini = min(mini , cost);
+            }
+        }
+        
+         dp[i] = mini;
+              
+              
+          }
+        return dp[0]-1;
     }
 };
