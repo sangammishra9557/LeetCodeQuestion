@@ -12,7 +12,7 @@ public:
              st.push(i);
         }
         vector<int> previous(n ,-1);
-        st = stack<int> ();
+         while(!st.empty()) st.pop();
         for(int i =0; i<n;i++){
             while(!st.empty() and heights[st.top()] >= heights[i]){
                 st.pop();
