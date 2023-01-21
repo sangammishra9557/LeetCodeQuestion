@@ -2,7 +2,7 @@ class Solution {
 public:
     int maxValue(int i , int k , vector<int> & arr, vector<int> &dp , int n){
         
-         if( i == n) return 0;
+         if( i == arr.size()) return 0;
         if(dp[i] != -1) return dp[i];
         
         int len = 0 , maxi = 0 , maxiAns  = 0;
