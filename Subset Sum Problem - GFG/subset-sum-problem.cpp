@@ -36,24 +36,29 @@ public:
        // vector<vector<int>> dp(n, vector<int> (sum+1,-1));
        //  return exist(arr.size()-1 ,sum, arr , dp);
        // here inintially we have to fill all the zeros means intially all false;  
-       vector<vector<int>> dp(n+1 , vector<int> (sum+1 , 0));
-       for(int i=0;i<n ; i++)dp[i][0] = 1 ; 
-        if(arr[0] <= sum) dp[0][arr[0]] = 1 ; 
-        
-        
+    //   vector<vector<int>> dp(n+1 , vector<int> (sum+1 , 0));
+//    tabulation cpde    //   for(int i=0;i<n ; i++)dp[i][0] = 1 ; 
+    //     if(arr[0] <= sum) dp[0][arr[0]] = 1 ; 
+  // space opmtimezed code now 
+  
+        vector<int> prev(sum+1 , 0) , curr(sum+1 , 0);
+        prev[0] = curr[0] = 1;
+        if(arr[0] <= sum)  prev[arr[0]]= 1;
         for(int i = 1 ; i<n ; i++){
             
             for(int target = 1 ; target<=sum ; target++){
-                  bool nottake = dp[i-1][target];
+                  bool nottake = prev[target];
                   bool take= 0;
                   if(arr[i] <=target ){
-                       take = dp[i-1][target - arr[i]];    
+                       take = prev[target - arr[i]];    
 
                   }
-                  dp[i][target] = take|nottake;
-            }
-        };
-        return dp [n-1][sum];
+                  curr[target] = take|nottake;
+                    }
+                    
+                 prev = curr;    
+                }
+        return   prev[sum];
     }
      
 };
