@@ -58,7 +58,7 @@ public:
                     
                  prev = curr;    
                 }
-        return   prev[sum];
+        return   curr[sum];
     }
      
 };
