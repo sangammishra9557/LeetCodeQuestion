@@ -107,7 +107,7 @@ int main() {
         if( root == NULL) return ; 
         
          if (root->data >= input){
-             upper = min(upper ,root->data);
+             upper = root->data;
              solve(root->left , input , upper);
          }
          if(root->data < input) solve(root->right , input , upper);
@@ -120,9 +120,9 @@ int main() {
 
 
 int findCeil(Node* root, int input) {
-         int upper= INT_MAX ;
+         int upper= -1 ;
         solve(root , input , upper);
-         if (upper == INT_MAX) return -1;
+         // (upper == INT_MAX) return -1;
          return upper;
     // Your code here
 }
