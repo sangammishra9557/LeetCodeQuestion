@@ -18,8 +18,11 @@ public:
          int x[]  = {1 , 0 ,-1 ,0};
          int  y[]=  {0 , 1 ,0 , -1 };
          int time = 0 ;
-       
+          int flag1 = 0 , flag2= 0;
          while(!q.empty()){
+             int sz = q.size();
+             flag2 = 0;
+             for(int i = 0 ; i<sz ; i++){
               auto vect = q.front();
               q.pop();
               int r = vect[0];
@@ -31,21 +34,25 @@ public:
               for( int i = 0 ; i<4 ; i++){
                   if(check(r+x[i] ,c+ y[i] , n , m , grid)){
                       if(visited[r+x[i]][c+y[i]] ==2) continue;
-                      visited[r+x[i]][c+y[i]] =  2 ; 
+                      visited[r+x[i]][c+y[i]] =  2 ;
+                      flag2 =1;
                       q.push({ r+x[i] , c+y[i]  , ct+1});
                       
                   }
               }
-             
-             
+                         
          }
+             if(flag2) flag1++;
+             
+}        
          
         for( int i =0 ; i<n ; i++){
             for( int j = 0 ; j< m ; j++)
             { if(grid[i][j] == 1 && visited[i][j] != 2) return -1;
             }
         }
-        return time;
+        
+        return flag1;
         
     }
     bool check( int r , int c, int n ,  int m , vector<vector<int>> & grid){
