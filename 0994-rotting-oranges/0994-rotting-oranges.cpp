@@ -28,17 +28,16 @@ public:
               int r = vect[0];
               int c = vect[1];
           
-              int ct = vect[2];
-              time  = max(time , ct);
+              
              
               for( int i = 0 ; i<4 ; i++){
-                  if(check(r+x[i] ,c+ y[i] , n , m , grid)){
-                      if(visited[r+x[i]][c+y[i]] ==2) continue;
-                      visited[r+x[i]][c+y[i]] =  2 ;
-                      flag2 =1;
-                      q.push({ r+x[i] , c+y[i]  , ct+1});
-                      
-                  }
+                 int nrow = r + x[i];
+                 int col =  c+ y[i];
+                 if( nrow >= 0 && nrow <n && col >= 0 && col < m  && grid[nrow][col] != 0 && grid[nrow][col] != 2){
+                     q.push({nrow , col});
+                     grid[nrow][col] = 2 ; 
+                     flag2 =1;
+                 } 
               }
                          
          }
