@@ -5,7 +5,7 @@ public:
         
          for(auto it :v){
              sum += it ; 
-             m = max(sum , m);
+             if(sum>m) m = sum;
              if(sum<0) sum = 0;
          }
         return  m;
