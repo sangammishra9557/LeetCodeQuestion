@@ -25,7 +25,7 @@ public:
         
         
          int n = nums.size();
-          unordered_set<int> st(nums.begin() , nums.end());
+     set<int> st(nums.begin() , nums.end());
            int c = 0;
            int maxi = 0;
            for(int i = 0 ; i<n ; i++){
