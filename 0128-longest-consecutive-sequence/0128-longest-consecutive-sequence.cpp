@@ -34,8 +34,9 @@ public:
                      
                       c = 0; 
                       int curr = nums[i];
-                      while(st.count(curr++)){
+                      while(st.count(curr)){
                           c++;
+                          curr++;
                          
                       }
                       maxi = max(maxi , c);
