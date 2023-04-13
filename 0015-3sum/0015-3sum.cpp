@@ -5,7 +5,7 @@ public:
       sort(nums.begin(), nums.end());
       int n = nums.size();
       for(int i = 0 ; i <nums.size() ; i++){
-           if( i== 0 || nums[i] != nums[i-1]){
+          // if( i== 0 || nums[i] != nums[i-1]){
              int l = i+1 , h = n-1;
              int tar = -nums[i];
              while( l < h ){
@@ -19,8 +19,8 @@ public:
                   else if (nums[l]+ nums[h] > tar ) h--;
                    else l++;
              }
-         //  while( i <n && nums[i] == nums[i+1]) i++; // either this or the the above
-           }
+          while( i <n-1 && nums[i] == nums[i+1]) i++; // either this or the the above
+           // }
       }
         return ans;
         
