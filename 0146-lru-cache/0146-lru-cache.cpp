@@ -5,6 +5,7 @@ public:
     list<pair<int, int>> li;
     LRUCache(int capacity) {
         cap = capacity;
+        size= 0;
     }
     int get(int key) {
         auto it = mp.find(key);
@@ -25,16 +26,18 @@ public:
             mp[key] = li.begin();
             return;
         }
-         if(mp.size() == cap){
+         if(size == cap){
+             cout<<"jey"<<key;
              int k = li.back().first;
              mp.erase(k);
              li.pop_back();
+             size--;
             
          }
         li.push_front({key, value});
         mp[key] = li.begin();
-        size++;
         
+        size++;
         
     }
 };
