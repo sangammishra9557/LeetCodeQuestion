@@ -11,38 +11,7 @@
 class Solution {
 public:
     ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
-//          ListNode  *list3= NULL;
-//          ListNode  *p1= list1;
-//          ListNode  *p2= list2;
-//          ListNode  *p3= list3;
-//          if(p1==NULL) return p2;
-//          if(p2==NULL) return p1;
-//           if(p1->val<p2->val){
-//               list3= p1 ;
-//                p1= p1->next;
-               
-//           }
-//          else{
-//              list3 = p2;
-//              p2= p2->next;
-             
-//          }
-//          p3 = list3;
-//          while(p1!=NULL and p2!=NULL){
-//              if(p1->val<p2->val){
-//                  p3->next= p1;
-//                  p1=p1->next;
-//                  p3= p3->next;
-//              }
-//               else {
-//                   p3->next= p2;
-//                   p2= p2->next;
-//                   p3= p3->next;
-//               }
-//          }
-//          if(p1) p3->next= p1;
-//          if(p2) p3->next = p2;
-//          return list3;
+    //naya head find krne wali condition aaploop ke andar bhi leke ja skte ho jaisa ki ayushi sharma ne bta rkha hai apko bus uske andar jana hga 
         ListNode* list3 = NULL;
         ListNode* p1 = list1;
         ListNode* p2 = list2;
