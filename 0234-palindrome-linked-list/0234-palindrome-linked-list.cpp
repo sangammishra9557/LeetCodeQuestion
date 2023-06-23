@@ -21,18 +21,20 @@ public:
      }
     bool isPalindrome(ListNode* head) {
               if( head->next ==NULL) return true;
-        ListNode * slow= head , * fast= head ;
+        ListNode * slow= head , * fast= head ,*pt = NULL;
          
         while(fast != NULL && fast->next != NULL){
+            pt =slow;
             slow = slow->next ; 
             fast = fast->next->next; 
         }
+        pt->next= NULL;
          
 //   agr na bhi kro ge toh bhi chlega 1 bht deep point hai  ki apne slow se phle prev ka link nhin change kiya hai toh woh htega nhin  toh 1 2 3 3 2 1 aise ho jayegi list 
         // yhn pe apko check krna pdeg ki khin odd toh nhin hai agr odd hai toh beech wala element common hga 
            cout<<slow->val<<" hi\n";
           if(fast != NULL && fast->next == NULL)slow =slow->next;
-//traverse(head);
+traverse(head);
         ListNode * current = slow;
         ListNode* prev = NULL, * next = NULL;
         cout<<slow->val<<" hi\n";
