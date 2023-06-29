@@ -10,7 +10,7 @@ public:
                 if(suff == 0)suff =1;
                  pre = pre* nums[i];
                  suff = suff* nums[n-i-1];
-                ans = max({ans,pre , suff});
+                ans = max(ans , max(suff , pre));
           }
          return ans ;
     }
