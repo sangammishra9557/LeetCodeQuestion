@@ -26,7 +26,7 @@ public:
             mp[key] = li.begin();
             return;
         }
-         if(size == cap){
+         if(mp.size() == cap){
              cout<<"jey"<<key;
              int k = li.back().first;
              mp.erase(k);
