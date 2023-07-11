@@ -20,7 +20,7 @@ public:
     void put(int key, int value) {
         auto it = mp.find(key);
         if(it != mp.end()){
-            it->second->second = value;
+           // it->second->second = value;
             li.erase(it->second);
             li.push_front({key,value});
             mp[key] = li.begin();
